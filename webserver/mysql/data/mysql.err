@@ -1,0 +1,576 @@
+180119 14:50:22 [Note] Plugin 'FEDERATED' is disabled.
+180119 14:50:30  InnoDB: Started; log sequence number 0 46409
+180119 14:50:30 [Note] Event Scheduler: Loaded 0 events
+180119 14:50:30 [Note] E:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180119 15:21:53 [Note] E:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180119 15:21:54 [Note] Event Scheduler: Purging the queue. 0 events
+180119 15:21:54  InnoDB: Starting shutdown...
+180119 15:21:55  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:21:55 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:35:33 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:35:34  InnoDB: Started; log sequence number 0 46409
+180119 15:35:34 [Note] Event Scheduler: Loaded 0 events
+180119 15:35:34 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180119 15:35:34 [Note] D:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180119 15:35:35 [Note] Event Scheduler: Purging the queue. 0 events
+180119 15:35:35  InnoDB: Starting shutdown...
+180119 15:35:36  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:35:36 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:35:37 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:35:37 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:35:37  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:35:37  InnoDB: Started; log sequence number 0 46409
+180119 15:35:37 [Note] Event Scheduler: Loaded 0 events
+180119 15:35:37 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180119 15:35:47  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:35:57  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:36:07  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:36:17  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:36:27  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:36:37  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:36:47  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:36:57  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:37:07  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:37:17  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:37:26 [Note] D:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180119 15:37:27 [Note] Event Scheduler: Purging the queue. 0 events
+180119 15:37:27  InnoDB: Starting shutdown...
+180119 15:37:27  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:37:28  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:37:28 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:37:37  InnoDB: Started; log sequence number 0 46409
+180119 15:37:37 [Note] Event Scheduler: Loaded 0 events
+180119 15:37:37 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180119 15:38:03 [Note] D:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180119 15:38:04 [Note] Event Scheduler: Purging the queue. 0 events
+180119 15:38:04  InnoDB: Starting shutdown...
+180119 15:38:05  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:38:05 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:39:49 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:39:49  InnoDB: Started; log sequence number 0 46409
+180119 15:39:49 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:39:49 [ERROR] Aborting
+
+180119 15:39:49  InnoDB: Starting shutdown...
+180119 15:39:50  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:39:50 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:39:54 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:39:54  InnoDB: Started; log sequence number 0 46409
+180119 15:39:54 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:39:54 [ERROR] Aborting
+
+180119 15:39:54  InnoDB: Starting shutdown...
+180119 15:39:55  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:39:55 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:40:12 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:40:12  InnoDB: Started; log sequence number 0 46409
+180119 15:40:12 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:40:12 [ERROR] Aborting
+
+180119 15:40:12  InnoDB: Starting shutdown...
+180119 15:40:13  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:40:13 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:40:16 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:40:17  InnoDB: Started; log sequence number 0 46409
+180119 15:40:17 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:40:17 [ERROR] Aborting
+
+180119 15:40:17  InnoDB: Starting shutdown...
+180119 15:40:18  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:40:18 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:40:20 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:40:20  InnoDB: Started; log sequence number 0 46409
+180119 15:40:20 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:40:20 [ERROR] Aborting
+
+180119 15:40:20  InnoDB: Starting shutdown...
+180119 15:40:21  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:40:21 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:40:23 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:40:23  InnoDB: Started; log sequence number 0 46409
+180119 15:40:23 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:40:23 [ERROR] Aborting
+
+180119 15:40:23  InnoDB: Starting shutdown...
+180119 15:40:24  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:40:24 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:41:04 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:41:04  InnoDB: Started; log sequence number 0 46409
+180119 15:41:04 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:41:04 [ERROR] Aborting
+
+180119 15:41:04  InnoDB: Starting shutdown...
+180119 15:41:06  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:41:06 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:41:08 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:41:08  InnoDB: Started; log sequence number 0 46409
+180119 15:41:08 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:41:08 [ERROR] Aborting
+
+180119 15:41:08  InnoDB: Starting shutdown...
+180119 15:41:09  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:41:09 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:41:10 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:41:10  InnoDB: Started; log sequence number 0 46409
+180119 15:41:10 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:41:10 [ERROR] Aborting
+
+180119 15:41:10  InnoDB: Starting shutdown...
+180119 15:41:11  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:41:11 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:41:12 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:41:13  InnoDB: Started; log sequence number 0 46409
+180119 15:41:13 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:41:13 [ERROR] Aborting
+
+180119 15:41:13  InnoDB: Starting shutdown...
+180119 15:41:14  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:41:14 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:41:16 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:41:16  InnoDB: Started; log sequence number 0 46409
+180119 15:41:16 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:41:16 [ERROR] Aborting
+
+180119 15:41:16  InnoDB: Starting shutdown...
+180119 15:41:17  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:41:17 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:41:24 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:41:24  InnoDB: Started; log sequence number 0 46409
+180119 15:41:24 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:41:24 [ERROR] Aborting
+
+180119 15:41:24  InnoDB: Starting shutdown...
+180119 15:41:26  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:41:26 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:41:29 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:41:29  InnoDB: Started; log sequence number 0 46409
+180119 15:41:29 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:41:29 [ERROR] Aborting
+
+180119 15:41:29  InnoDB: Starting shutdown...
+180119 15:41:30  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:41:30 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:41:32 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:41:32 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:41:32  InnoDB: Operating system error number 32 in a file operation.
+InnoDB: The error means that another program is using InnoDB's files.
+InnoDB: This might be a backup or antivirus software or another instance
+InnoDB: of MySQL. Please close it to get rid of this error.
+180119 15:41:32  InnoDB: Started; log sequence number 0 46409
+180119 15:41:32 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:41:32 [ERROR] Aborting
+
+180119 15:41:32  InnoDB: Starting shutdown...
+180119 15:41:33  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:41:33 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:41:42  InnoDB: Started; log sequence number 0 46409
+180119 15:41:42 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:41:42 [ERROR] Aborting
+
+180119 15:41:42  InnoDB: Starting shutdown...
+180119 15:41:43  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:41:43 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:44:00 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:44:00  InnoDB: Started; log sequence number 0 46409
+180119 15:44:00 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:44:00 [ERROR] Aborting
+
+180119 15:44:00  InnoDB: Starting shutdown...
+180119 15:44:02  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:44:02 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:44:04 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:44:05  InnoDB: Started; log sequence number 0 46409
+180119 15:44:05 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:44:05 [ERROR] Aborting
+
+180119 15:44:05  InnoDB: Starting shutdown...
+180119 15:44:06  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:44:06 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:44:08 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:44:08  InnoDB: Started; log sequence number 0 46409
+180119 15:44:08 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:44:08 [ERROR] Aborting
+
+180119 15:44:08  InnoDB: Starting shutdown...
+180119 15:44:10  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:44:10 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:45:52 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:45:52  InnoDB: Started; log sequence number 0 46409
+180119 15:45:52 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:45:52 [ERROR] Aborting
+
+180119 15:45:52  InnoDB: Starting shutdown...
+180119 15:45:54  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:45:54 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:45:59 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:45:59  InnoDB: Started; log sequence number 0 46409
+180119 15:45:59 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:45:59 [ERROR] Aborting
+
+180119 15:45:59  InnoDB: Starting shutdown...
+180119 15:46:00  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:46:00 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:48:27 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:48:28  InnoDB: Started; log sequence number 0 46409
+180119 15:48:28 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:48:28 [ERROR] Aborting
+
+180119 15:48:28  InnoDB: Starting shutdown...
+180119 15:48:29  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:48:29 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:48:31 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:48:31  InnoDB: Started; log sequence number 0 46409
+180119 15:48:31 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:48:31 [ERROR] Aborting
+
+180119 15:48:31  InnoDB: Starting shutdown...
+180119 15:48:33  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:48:33 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:48:34 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:48:34  InnoDB: Started; log sequence number 0 46409
+180119 15:48:34 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:48:34 [ERROR] Aborting
+
+180119 15:48:34  InnoDB: Starting shutdown...
+180119 15:48:36  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:48:36 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:50:25 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:50:33  InnoDB: Started; log sequence number 0 46409
+180119 15:50:34 [Note] Event Scheduler: Loaded 0 events
+180119 15:50:34 [Note] E:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180119 15:50:35 [Note] E:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180119 15:50:36 [Note] Event Scheduler: Purging the queue. 0 events
+180119 15:50:36  InnoDB: Starting shutdown...
+180119 15:50:36  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:50:37 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:50:38 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:50:38  InnoDB: Started; log sequence number 0 46409
+180119 15:50:38 [Note] Event Scheduler: Loaded 0 events
+180119 15:50:38 [Note] E:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180119 15:51:29 [Note] E:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180119 15:51:30 [Note] Event Scheduler: Purging the queue. 0 events
+180119 15:51:30  InnoDB: Starting shutdown...
+180119 15:51:31  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:51:31 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:54:32 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:54:39  InnoDB: Started; log sequence number 0 46409
+180119 15:54:40 [Note] Event Scheduler: Loaded 0 events
+180119 15:54:40 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180119 15:59:25 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:59:26  InnoDB: Started; log sequence number 0 46409
+180119 15:59:26 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:59:26 [ERROR] Aborting
+
+180119 15:59:26  InnoDB: Starting shutdown...
+180119 15:59:27  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:59:27 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:59:32 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:59:32  InnoDB: Started; log sequence number 0 46409
+180119 15:59:32 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:59:32 [ERROR] Aborting
+
+180119 15:59:32  InnoDB: Starting shutdown...
+180119 15:59:34  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:59:34 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 15:59:36 [Note] Plugin 'FEDERATED' is disabled.
+180119 15:59:36  InnoDB: Started; log sequence number 0 46409
+180119 15:59:36 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 15:59:36 [ERROR] Aborting
+
+180119 15:59:36  InnoDB: Starting shutdown...
+180119 15:59:38  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 15:59:38 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 16:02:44 [Note] Plugin 'FEDERATED' is disabled.
+180119 16:02:44  InnoDB: Started; log sequence number 0 46409
+180119 16:02:44 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180119 16:02:44 [ERROR] Aborting
+
+180119 16:02:44  InnoDB: Starting shutdown...
+180119 16:02:46  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 16:02:46 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180119 16:16:10 [Note] Plugin 'FEDERATED' is disabled.
+180119 16:16:20  InnoDB: Started; log sequence number 0 46409
+180119 16:16:21 [Note] Event Scheduler: Loaded 0 events
+180119 16:16:21 [Note] E:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180119 22:01:03 [Note] Plugin 'FEDERATED' is disabled.
+180119 22:01:03  InnoDB: Started; log sequence number 0 46409
+180119 22:01:03 [Note] Event Scheduler: Loaded 0 events
+180119 22:01:03 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180119 22:01:52 [Note] D:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180119 22:01:53 [Note] Event Scheduler: Purging the queue. 0 events
+180119 22:01:53  InnoDB: Starting shutdown...
+180119 22:01:53  InnoDB: Shutdown completed; log sequence number 0 46409
+180119 22:01:54 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180120  5:37:23 [Note] Plugin 'FEDERATED' is disabled.
+180120  5:37:24  InnoDB: Started; log sequence number 0 46409
+180120  5:37:24 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180120  5:37:24 [ERROR] Aborting
+
+180120  5:37:24  InnoDB: Starting shutdown...
+180120  5:37:25  InnoDB: Shutdown completed; log sequence number 0 46409
+180120  5:37:25 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180120  5:39:13 [Note] Plugin 'FEDERATED' is disabled.
+180120  5:39:13  InnoDB: Started; log sequence number 0 46409
+180120  5:39:13 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180120  5:39:13 [ERROR] Aborting
+
+180120  5:39:13  InnoDB: Starting shutdown...
+180120  5:39:14  InnoDB: Shutdown completed; log sequence number 0 46409
+180120  5:39:14 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180120  5:39:16 [Note] Plugin 'FEDERATED' is disabled.
+180120  5:39:16  InnoDB: Started; log sequence number 0 46409
+180120  5:39:16 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180120  5:39:16 [ERROR] Aborting
+
+180120  5:39:16  InnoDB: Starting shutdown...
+180120  5:39:18  InnoDB: Shutdown completed; log sequence number 0 46409
+180120  5:39:18 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180120  5:41:06 [Note] Plugin 'FEDERATED' is disabled.
+180120  5:41:15  InnoDB: Started; log sequence number 0 46409
+180120  5:41:16 [Note] Event Scheduler: Loaded 0 events
+180120  5:41:16 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180120  6:04:22 [Note] D:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180120  6:04:23 [Note] Event Scheduler: Purging the queue. 0 events
+180120  6:04:25 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 69  user: 'root'
+
+180120  6:04:25 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 68  user: 'root'
+
+180120  6:04:25 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 67  user: 'root'
+
+180120  6:04:25 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 66  user: 'root'
+
+180120  6:04:25 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 65  user: 'root'
+
+180120  6:04:25 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 64  user: 'root'
+
+180120  6:04:25 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 63  user: 'root'
+
+180120  6:04:25 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 62  user: 'root'
+
+180120  6:04:26 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 61  user: 'root'
+
+180120  6:04:26 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 60  user: 'root'
+
+180120  6:04:26 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 59  user: 'root'
+
+180120  6:04:26 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 58  user: 'root'
+
+180120  6:04:26 [Warning] D:\webserver\mysql\bin\mysqld.exe: Forcing close of thread 39  user: 'root'
+
+180120  6:04:26  InnoDB: Starting shutdown...
+180120  6:04:26  InnoDB: Shutdown completed; log sequence number 0 46409
+180120  6:04:26 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180120  6:05:36 [Note] Plugin 'FEDERATED' is disabled.
+180120  6:05:36  InnoDB: Started; log sequence number 0 46409
+180120  6:05:36 [Note] Event Scheduler: Loaded 0 events
+180120  6:05:36 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180120  6:06:55 [Note] D:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180120  6:06:56 [Note] Event Scheduler: Purging the queue. 0 events
+180120  6:07:04  InnoDB: Starting shutdown...
+180120  6:07:06  InnoDB: Shutdown completed; log sequence number 0 46409
+180120  6:07:06 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180120  6:15:32 [Note] Plugin 'FEDERATED' is disabled.
+180120  6:15:41  InnoDB: Started; log sequence number 0 46409
+180120  6:15:41 [Note] Event Scheduler: Loaded 0 events
+180120  6:15:41 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180120  6:16:02 [Note] D:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180120  6:16:03 [Note] Event Scheduler: Purging the queue. 0 events
+180120  6:16:03  InnoDB: Starting shutdown...
+180120  6:16:04  InnoDB: Shutdown completed; log sequence number 0 46409
+180120  6:16:04 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180120  8:22:29 [Note] Plugin 'FEDERATED' is disabled.
+180120  8:22:29  InnoDB: Started; log sequence number 0 46409
+180120  8:22:29 [Note] Event Scheduler: Loaded 0 events
+180120  8:22:29 [Note] E:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180204 15:46:57 [Note] Plugin 'FEDERATED' is disabled.
+180204 15:46:58  InnoDB: Started; log sequence number 0 46409
+180204 15:46:58 [Note] Event Scheduler: Loaded 0 events
+180204 15:46:58 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180204 15:47:08 [Note] D:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180204 15:47:09 [Note] Event Scheduler: Purging the queue. 0 events
+180204 15:47:09  InnoDB: Starting shutdown...
+180204 15:47:10  InnoDB: Shutdown completed; log sequence number 0 46409
+180204 15:47:10 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180204 15:49:29 [Note] Plugin 'FEDERATED' is disabled.
+180204 15:49:29  InnoDB: Started; log sequence number 0 46409
+180204 15:49:29 [Note] Event Scheduler: Loaded 0 events
+180204 15:49:29 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180204 17:42:22 [Note] Plugin 'FEDERATED' is disabled.
+180204 17:42:22  InnoDB: Started; log sequence number 0 46409
+180204 17:42:23 [Note] Event Scheduler: Loaded 0 events
+180204 17:42:23 [Note] D:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180204 17:43:16 [Note] D:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180204 17:43:17 [Note] Event Scheduler: Purging the queue. 0 events
+180204 17:43:17  InnoDB: Starting shutdown...
+180204 17:43:18  InnoDB: Shutdown completed; log sequence number 0 46409
+180204 17:43:18 [Note] D:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180204 18:04:55 [Note] Plugin 'FEDERATED' is disabled.
+180204 18:05:02  InnoDB: Started; log sequence number 0 46409
+180204 18:05:02 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180204 18:05:02 [ERROR] Aborting
+
+180204 18:05:02  InnoDB: Starting shutdown...
+180204 18:05:04  InnoDB: Shutdown completed; log sequence number 0 46409
+180204 18:05:04 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180204 18:06:33 [Note] Plugin 'FEDERATED' is disabled.
+180204 18:06:33  InnoDB: Started; log sequence number 0 46409
+180204 18:06:33 [ERROR] Do you already have another mysqld server running on port: 3306 ?
+180204 18:06:33 [ERROR] Aborting
+
+180204 18:06:33  InnoDB: Starting shutdown...
+180204 18:06:35  InnoDB: Shutdown completed; log sequence number 0 46409
+180204 18:06:35 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180204 18:10:35 [Note] Plugin 'FEDERATED' is disabled.
+180204 18:10:35  InnoDB: Started; log sequence number 0 46409
+180204 18:10:36 [Note] Event Scheduler: Loaded 0 events
+180204 18:10:36 [Note] E:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180204 18:15:33 [Note] E:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180204 18:15:34 [Note] Event Scheduler: Purging the queue. 0 events
+180204 18:15:34  InnoDB: Starting shutdown...
+180204 18:15:35  InnoDB: Shutdown completed; log sequence number 0 46409
+180204 18:15:35 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180204 18:15:50 [Note] Plugin 'FEDERATED' is disabled.
+180204 18:15:50  InnoDB: Started; log sequence number 0 46409
+180204 18:15:50 [Note] Event Scheduler: Loaded 0 events
+180204 18:15:50 [Note] E:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180204 18:16:02 [Note] E:\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+180204 18:16:03 [Note] Event Scheduler: Purging the queue. 0 events
+180204 18:16:03  InnoDB: Starting shutdown...
+180204 18:16:03  InnoDB: Shutdown completed; log sequence number 0 46409
+180204 18:16:04 [Note] E:\webserver\mysql\bin\mysqld.exe: Shutdown complete
+
+180204 20:38:49 [Note] Plugin 'FEDERATED' is disabled.
+180204 20:38:49  InnoDB: Started; log sequence number 0 46409
+180204 20:38:50 [Note] Event Scheduler: Loaded 0 events
+180204 20:38:50 [Note] E:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+180204 22:05:25 [Note] Plugin 'FEDERATED' is disabled.
+180204 22:05:26  InnoDB: Started; log sequence number 0 46409
+180204 22:05:26 [Note] Event Scheduler: Loaded 0 events
+180204 22:05:26 [Note] E:\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+210131  4:43:08 [Note] Plugin 'FEDERATED' is disabled.
+210131  4:43:08  InnoDB: Started; log sequence number 0 46409
+210131  4:43:08 [Note] Event Scheduler: Loaded 0 events
+210131  4:43:08 [Note] C:\Programing\Personal\LibraryManager\webserver\mysql\bin\mysqld.exe: ready for connections.
+Version: '5.1.41'  socket: ''  port: 3306  Source distribution
+210131  4:43:47 [Note] C:\Programing\Personal\LibraryManager\webserver\mysql\bin\mysqld.exe: Normal shutdown
+
+210131  4:43:48 [Note] Event Scheduler: Purging the queue. 0 events
+210131  4:43:48  InnoDB: Starting shutdown...
+210131  4:43:48  InnoDB: Shutdown completed; log sequence number 0 46409
+210131  4:43:48 [Note] C:\Programing\Personal\LibraryManager\webserver\mysql\bin\mysqld.exe: Shutdown complete
+

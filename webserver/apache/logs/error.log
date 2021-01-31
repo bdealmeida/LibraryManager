@@ -1,0 +1,92 @@
+httpd.exe: Syntax error on line 35 of D:/webserver/apache/conf/httpd.conf: ServerRoot must be a valid directory
+httpd.exe: Syntax error on line 35 of E:/webserver/apache/conf/httpd.conf: ServerRoot must be a valid directory
+httpd.exe: Syntax error on line 35 of E:/webserver/apache/conf/httpd.conf: ServerRoot must be a valid directory
+httpd.exe: Syntax error on line 35 of E:/webserver/apache/conf/httpd.conf: ServerRoot must be a valid directory
+[Fri Jan 19 14:51:24 2018] [notice] Digest: generating secret for digest authentication ...
+[Fri Jan 19 14:51:24 2018] [notice] Digest: done
+[Fri Jan 19 14:51:25 2018] [notice] Apache/2.2.14 (Win32) DAV/2 mod_ssl/2.2.14 OpenSSL/0.9.8l mod_autoindex_color PHP/5.3.1 configured -- resuming normal operations
+[Fri Jan 19 14:51:25 2018] [notice] Server built: Nov 11 2009 14:29:03
+[Fri Jan 19 14:51:26 2018] [notice] Parent: Created child process 13844
+[Fri Jan 19 14:51:33 2018] [notice] Digest: generating secret for digest authentication ...
+[Fri Jan 19 14:51:33 2018] [notice] Digest: done
+[Fri Jan 19 14:51:33 2018] [notice] Child 13844: Child process is running
+[Fri Jan 19 14:51:33 2018] [notice] Child 13844: Acquired the start mutex.
+[Fri Jan 19 14:51:33 2018] [notice] Child 13844: Starting 150 worker threads.
+[Fri Jan 19 14:51:33 2018] [notice] Child 13844: Starting thread to listen on port 80.
+[Fri Jan 19 14:51:33 2018] [notice] Child 13844: Starting thread to listen on port 443.
+[Fri Jan 19 14:51:33 2018] [notice] Child 13844: Starting thread to listen on port 443.
+[Fri Jan 19 14:51:33 2018] [notice] Child 13844: Starting thread to listen on port 80.
+[Fri Jan 19 15:21:49 2018] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Fri Jan 19 15:21:49 2018] [notice] Child 13844: Exit event signaled. Child process is ending.
+[Fri Jan 19 15:21:50 2018] [notice] Child 13844: Released the start mutex
+[Fri Jan 19 15:21:51 2018] [notice] Child 13844: All worker threads have exited.
+[Fri Jan 19 15:21:51 2018] [notice] Child 13844: Child process is exiting
+[Fri Jan 19 15:21:51 2018] [notice] Parent: Child process exited successfully.
+httpd.exe: Syntax error on line 35 of D:/webserver/apache/conf/httpd.conf: ServerRoot must be a valid directory
+[Fri Jan 19 15:34:47 2018] [notice] Digest: generating secret for digest authentication ...
+[Fri Jan 19 15:34:47 2018] [notice] Digest: done
+[Fri Jan 19 15:34:48 2018] [notice] Apache/2.2.14 (Win32) DAV/2 mod_ssl/2.2.14 OpenSSL/0.9.8l mod_autoindex_color PHP/5.3.1 configured -- resuming normal operations
+[Fri Jan 19 15:34:48 2018] [notice] Server built: Nov 11 2009 14:29:03
+[Fri Jan 19 15:34:48 2018] [notice] Parent: Created child process 4300
+[Fri Jan 19 15:34:49 2018] [notice] Digest: generating secret for digest authentication ...
+[Fri Jan 19 15:34:49 2018] [notice] Digest: done
+[Fri Jan 19 15:34:49 2018] [notice] Child 4300: Child process is running
+[Fri Jan 19 15:34:49 2018] [notice] Child 4300: Acquired the start mutex.
+[Fri Jan 19 15:34:49 2018] [notice] Child 4300: Starting 150 worker threads.
+[Fri Jan 19 15:34:49 2018] [notice] Child 4300: Starting thread to listen on port 443.
+[Fri Jan 19 15:34:49 2018] [notice] Child 4300: Starting thread to listen on port 443.
+[Fri Jan 19 15:34:49 2018] [notice] Child 4300: Starting thread to listen on port 80.
+[Fri Jan 19 15:34:49 2018] [notice] Child 4300: Starting thread to listen on port 80.
+[Fri Jan 19 15:35:42 2018] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Fri Jan 19 15:35:42 2018] [notice] Child 4300: Exit event signaled. Child process is ending.
+[Fri Jan 19 15:35:43 2018] [notice] Child 4300: Released the start mutex
+[Fri Jan 19 15:35:44 2018] [notice] Child 4300: All worker threads have exited.
+[Fri Jan 19 15:35:44 2018] [notice] Child 4300: Child process is exiting
+[Fri Jan 19 15:35:44 2018] [notice] Parent: Child process exited successfully.
+[Fri Jan 19 15:43:54 2018] [notice] Digest: generating secret for digest authentication ...
+[Fri Jan 19 15:43:54 2018] [notice] Digest: done
+[Fri Jan 19 15:43:55 2018] [notice] Apache/2.2.14 (Win32) DAV/2 mod_ssl/2.2.14 OpenSSL/0.9.8l mod_autoindex_color PHP/5.3.1 configured -- resuming normal operations
+[Fri Jan 19 15:43:55 2018] [notice] Server built: Nov 11 2009 14:29:03
+[Fri Jan 19 15:43:55 2018] [notice] Parent: Created child process 212
+[Fri Jan 19 15:43:56 2018] [notice] Digest: generating secret for digest authentication ...
+[Sun Feb 04 18:10:40 2018] [warn] pid file E:/webserver/apache/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Feb 04 18:10:40 2018] [notice] Digest: generating secret for digest authentication ...
+[Sun Feb 04 18:10:40 2018] [notice] Digest: done
+[Sun Feb 04 18:10:44 2018] [notice] Apache/2.2.14 (Win32) DAV/2 mod_ssl/2.2.14 OpenSSL/0.9.8l mod_autoindex_color PHP/5.3.1 configured -- resuming normal operations
+[Sun Feb 04 18:10:44 2018] [notice] Server built: Nov 11 2009 14:29:03
+[Sun Feb 04 18:10:44 2018] [notice] Parent: Created child process 932
+[Sun Feb 04 18:10:48 2018] [notice] Digest: generating secret for digest authentication ...
+[Sun Feb 04 18:10:48 2018] [notice] Digest: done
+[Sun Feb 04 18:10:49 2018] [notice] Child 932: Child process is running
+[Sun Feb 04 18:10:49 2018] [notice] Child 932: Acquired the start mutex.
+[Sun Feb 04 18:10:49 2018] [notice] Child 932: Starting 150 worker threads.
+[Sun Feb 04 18:10:49 2018] [notice] Child 932: Starting thread to listen on port 443.
+[Sun Feb 04 18:10:49 2018] [notice] Child 932: Starting thread to listen on port 80.
+[Sun Feb 04 18:10:49 2018] [notice] Child 932: Starting thread to listen on port 443.
+[Sun Feb 04 18:10:49 2018] [notice] Child 932: Starting thread to listen on port 80.
+[Sun Feb 04 18:15:28 2018] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Sun Feb 04 18:15:28 2018] [notice] Child 932: Exit event signaled. Child process is ending.
+[Sun Feb 04 18:15:29 2018] [notice] Child 932: Released the start mutex
+[Sun Feb 04 18:15:30 2018] [notice] Child 932: All worker threads have exited.
+[Sun Feb 04 18:15:30 2018] [notice] Child 932: Child process is exiting
+[Sun Feb 04 18:15:30 2018] [notice] Parent: Child process exited successfully.
+[Sun Jan 31 04:43:13 2021] [notice] Digest: generating secret for digest authentication ...
+[Sun Jan 31 04:43:13 2021] [notice] Digest: done
+[Sun Jan 31 04:43:19 2021] [notice] Apache/2.2.14 (Win32) DAV/2 mod_ssl/2.2.14 OpenSSL/0.9.8l mod_autoindex_color PHP/5.3.1 configured -- resuming normal operations
+[Sun Jan 31 04:43:19 2021] [notice] Server built: Nov 11 2009 14:29:03
+[Sun Jan 31 04:43:19 2021] [notice] Parent: Created child process 16956
+[Sun Jan 31 04:43:20 2021] [notice] Digest: generating secret for digest authentication ...
+[Sun Jan 31 04:43:20 2021] [notice] Digest: done
+[Sun Jan 31 04:43:20 2021] [notice] Child 16956: Child process is running
+[Sun Jan 31 04:43:20 2021] [notice] Child 16956: Acquired the start mutex.
+[Sun Jan 31 04:43:20 2021] [notice] Child 16956: Starting 150 worker threads.
+[Sun Jan 31 04:43:20 2021] [notice] Child 16956: Starting thread to listen on port 443.
+[Sun Jan 31 04:43:20 2021] [notice] Child 16956: Starting thread to listen on port 80.
+[Sun Jan 31 04:43:20 2021] [notice] Child 16956: Starting thread to listen on port 443.
+[Sun Jan 31 04:43:20 2021] [notice] Child 16956: Starting thread to listen on port 80.
+[Sun Jan 31 04:43:51 2021] [notice] Parent: Received shutdown signal -- Shutting down the server.
+[Sun Jan 31 04:43:51 2021] [notice] Child 16956: Exit event signaled. Child process is ending.
+[Sun Jan 31 04:43:52 2021] [notice] Child 16956: Released the start mutex
+[Sun Jan 31 04:43:53 2021] [notice] Child 16956: All worker threads have exited.
+[Sun Jan 31 04:43:53 2021] [notice] Child 16956: Child process is exiting
+[Sun Jan 31 04:43:53 2021] [notice] Parent: Child process exited successfully.
