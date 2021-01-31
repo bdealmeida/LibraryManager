@@ -1,0 +1,712 @@
+﻿package application;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class Controller implements Initializable {
+
+	private ObservableList<book> books;	// List to pass to 'book' table
+	private ObservableList<Member> members;	// List to pass to 'Member' table
+	private DbConnection conn;	// Provide sql connection for queries
+	
+	
+    // Top bar elements for searching
+	@FXML
+    private HBox searchCont;
+	@FXML
+	private Button refreshBtn;
+    @FXML
+    private Text searchText;
+    @FXML
+    private TextField searchBox;
+    @FXML
+    private Button searchSubmit;
+    
+    // Button methods used to call searching method on 'ENTER' and magnifying glass click
+    @FXML
+    void searchButtonClicked(ActionEvent e) {
+    	try {
+			getList(searchBox.getText());
+		} catch (Exception ex) {}
+    }
+    @FXML
+    void searchKeyPressed(ActionEvent e) {
+    	try {
+			getList(searchBox.getText());
+		} catch (Exception ex) {}
+    }
+    
+    /**
+     * Get complete set of data from the database
+     */
+    @FXML
+	void refresh() {
+		// Get initial book lists
+    	try {
+			Connection sql = conn.connect();
+			
+			books = FXCollections.observableArrayList();
+		
+			// Execute query based on search value and store in a ResultSet
+			ResultSet rs = sql.createStatement().executeQuery("SELECT * FROM books ORDER BY title;");
+			ResultSet temp = null;
+			while(rs.next()) {
+				
+				// Get name of member if book is out
+				if(rs.getInt(5) != -1) {					
+					temp = sql.createStatement().executeQuery("SELECT * FROM members WHERE id = " + rs.getInt(5) + ";");
+					
+					while(temp.next()) {
+						books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), temp.getString(2), rs.getString(6), rs.getString(7)));
+					}				
+				} else
+					books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), "", 
+							rs.getString(6) == null ? "" : rs.getString(6), rs.getString(7) == null ? "" : rs.getString(7)));
+			}
+			
+			
+			
+			members = FXCollections.observableArrayList();
+			// Execute query based on search value and store in a ResultSet
+			ResultSet rs2 = sql.createStatement().executeQuery("SELECT * FROM members ORDER BY name;");
+			ResultSet temp2 = null;
+			
+			boolean hasBook1 = false;
+			boolean hasBook2 = false;
+			String book1Title = "";
+			String book2Title = "";
+			while(rs2.next()) {
+				
+				// Get title of book 1 if applicable
+				if(rs2.getInt(3) != -1) {
+										
+					hasBook1 = true;
+					
+					temp2 = sql.createStatement().executeQuery("SELECT * FROM books WHERE id = " + rs2.getInt(3) +";");
+					
+					while(temp2.next()) {
+						book1Title = temp2.getString(2);
+					}
+				}
+				// Get title of book 2 if applicable
+				if(rs2.getInt(4) != -1) {
+					hasBook2 = true;
+					
+					temp2 = sql.createStatement().executeQuery("SELECT * FROM books WHERE id = " + rs2.getInt(4) +";");
+					
+					while(temp2.next()) {
+						book2Title = temp2.getString(2);
+					}
+				}
+				
+				members.add(new Member(rs2.getInt(1), rs2.getString(2), (hasBook1 ? book1Title : ""), (hasBook2 ? book2Title : ""), rs2.getString(5), rs2.getDouble(6)));				
+			
+				book1Title = "";
+				book2Title = "";
+			}
+		} catch (Exception ex) {System.err.println("Error " + ex);}
+    	
+		bookID.setCellValueFactory(new PropertyValueFactory<>("id"));
+		bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+		bookAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
+		bookOut.setCellValueFactory(new PropertyValueFactory<>("out"));
+		bookOutTo.setCellValueFactory(new PropertyValueFactory<>("outTo"));
+		bookDueOn.setCellValueFactory(new PropertyValueFactory<>("dueOnString"));
+		bookLastOut.setCellValueFactory(new PropertyValueFactory<>("lastOutString"));
+		
+		bookTable.setItems(null);
+		bookTable.setItems(books);
+		
+		memberId.setCellValueFactory(new PropertyValueFactory<>("id"));
+		memberName.setCellValueFactory(new PropertyValueFactory<>("name"));
+		memberBook1.setCellValueFactory(new PropertyValueFactory<>("book1"));
+		memberBook2.setCellValueFactory(new PropertyValueFactory<>("book2"));
+		memberStudent.setCellValueFactory(new PropertyValueFactory<>("student"));
+		memberFines.setCellValueFactory(new PropertyValueFactory<>("fines"));
+		
+		memberTable.setItems(null);
+		memberTable.setItems(members);
+	}
+    
+    // Left VBox buttons
+    @FXML
+    private Button checkInOutBtn;
+    @FXML
+    private Button addBtn;
+    @FXML
+    private Button deleteBtn;
+    @FXML
+	private Button updateBtn;
+    @FXML
+    private Button booksOutBtn;
+    @FXML
+    private Button recentOutBtn;
+    @FXML
+    private Button overdueBtn;
+    @FXML
+    private Button finesBtn;
+    @FXML
+	private Button payBtn;
+    
+    // ***Table nodes***
+    @FXML
+    private TabPane tableShell;
+    @FXML
+    private Tab bookTab;
+    @FXML
+    private Tab userTab;
+    @FXML
+    private TableView<book> bookTable;
+    // Book columns
+    @FXML
+    private TableColumn<book, Integer> bookID;
+    @FXML
+    private TableColumn<book, String> bookTitle;
+    @FXML
+    private TableColumn<book, String> bookAuthor;
+    @FXML
+    private TableColumn<book, Boolean> bookOut;
+    @FXML
+    private TableColumn<book, Integer> bookOutTo;
+    @FXML
+    private TableColumn<book, LocalDate> bookDueOn;
+    @FXML
+    private TableColumn<book, LocalDate> bookLastOut;
+    
+    @FXML
+    private TableView<Member> memberTable;
+    // Member columns
+    @FXML
+    private TableColumn<Member, Integer> memberId;
+    @FXML
+    private TableColumn<Member, String> memberName;
+    @FXML
+    private TableColumn<Member, String> memberBook1;
+    @FXML
+    private TableColumn<Member, String> memberBook2;
+    @FXML
+    private TableColumn<Member, Boolean> memberStudent;
+    @FXML
+    private TableColumn<Member, String> memberFines;
+    
+    // Button Meathods
+    @FXML
+    private TextField bookEntry;
+    @FXML
+    private TextField memberEntry;
+    @FXML
+    private Button checkOutSubmitBtn;
+    
+    // Public variables to pass to other classes so that they can obtain the current selected element in question
+    public static book selectedBook;
+    public static Member selectedMember;
+    
+    /**
+     * Depending on if current book is out or in, will open
+     * according window to flip element's status
+     * 
+     */
+    @FXML
+    void checkButtonClicked() {
+    	
+    	
+    	if(bookTab.isSelected() && !bookTable.getSelectionModel().isEmpty()) {
+    		
+    		selectedBook = bookTable.getSelectionModel().getSelectedItem();
+    		
+    		if(selectedBook.getOut() != null && selectedBook.getOut().equals("✓")) {
+    			// Open the check in window
+    			try {
+    		    	URL url = getClass().getResource("/application/checkInBook.fxml");
+    		        AnchorPane pane = (AnchorPane) FXMLLoader.load( url );
+    		        Scene scene = new Scene( pane );
+    		        
+    		        // setting a new stage
+    		        Stage primaryStage = new Stage();
+    		        primaryStage.setScene( scene );
+    		        primaryStage.setTitle( "Check In" );
+    		        primaryStage.show();
+    	    	} catch(Exception ex) {System.err.println("Error " + ex);}
+    		} else {    			
+    			// Code for checking book out
+    			try {
+    				// constructing our scene
+    			    URL url = getClass().getResource("/application/checkOut.fxml");
+    			    AnchorPane pane = (AnchorPane) FXMLLoader.load( url );
+    			    Scene scene = new Scene( pane );
+    			    
+    			    // setting a new stage
+    			    Stage primaryStage = new Stage();
+    			    primaryStage.setScene( scene );
+    			    primaryStage.setTitle( "Check Out" );
+    			    primaryStage.show();
+    	    	} catch(Exception ex) {System.err.println("Error " + ex);}
+    		}	
+    	}
+    }
+    
+    /**
+     * Pulls up new window used to add a new Member or Book
+     * to the database
+     * 
+     */
+    @FXML
+    void addButtonClicked() {
+    	
+    	try {
+	    	URL url = getClass().getResource("/application/addEntry.fxml");
+	        AnchorPane pane = (AnchorPane) FXMLLoader.load( url );
+	        Scene scene = new Scene( pane );
+	        
+	        // setting a new stage
+	        Stage primaryStage = new Stage();
+	        primaryStage.setScene( scene );
+	        primaryStage.setTitle( "Add Entry" );
+	        primaryStage.show();
+    	} catch(Exception ex) {System.err.println("Error " + ex);}	
+    	
+    }
+    
+    /**
+     * Pulls up confirmation window before deleting selected element (member or book)
+     * First gets selected on tab and sets other selected type item to null
+     */
+    @FXML
+    void deleteButtonClicked() {
+    	
+    	if(bookTab.isSelected())
+			if(!bookTable.getSelectionModel().isEmpty()) {
+				selectedBook = bookTable.getSelectionModel().getSelectedItem();
+				selectedMember = null;
+			}
+		else
+			if(!memberTable.getSelectionModel().isEmpty()) {
+				selectedMember = memberTable.getSelectionModel().getSelectedItem();
+				selectedBook = null;
+			}
+    	
+    	// Open delete window
+    	try {
+	    	URL url = getClass().getResource("/application/deleteConfirm.fxml");
+	        AnchorPane pane = (AnchorPane) FXMLLoader.load( url );
+	        Scene scene = new Scene( pane );
+	        
+	        // setting a new stage
+	        Stage primaryStage = new Stage();
+	        primaryStage.setScene( scene );
+	        primaryStage.setTitle( "Confirm" );
+	        primaryStage.show();
+    	} catch(Exception ex) {System.err.println("Error " + ex);}	
+    	
+    }
+    
+    /**
+     * Pulls up corresponding window to update selected
+     * (Book or Member)'s data
+     * 
+     */
+	@FXML
+	void updateButtonClicked() {
+		if(bookTab.isSelected()) {
+			
+			// If there is a book selected go ahead and open window for book
+			if(!bookTable.getSelectionModel().isEmpty()) {
+				selectedBook = bookTable.getSelectionModel().getSelectedItem();
+				
+				// Open updateBook window
+				try {
+    		    	URL url = getClass().getResource("/application/updateBook.fxml");
+    		        AnchorPane pane = (AnchorPane) FXMLLoader.load( url );
+    		        Scene scene = new Scene( pane );
+    		        
+    		        // setting a new stage
+    		        Stage primaryStage = new Stage();
+    		        primaryStage.setScene( scene );
+    		        primaryStage.setTitle( "Update" );
+    		        primaryStage.show();
+    	    	} catch(Exception ex) {System.err.println("Error " + ex);}
+			}
+			
+		} else {
+			
+			// If there is a member selection open window for member
+			if(!memberTable.getSelectionModel().isEmpty()) {
+				
+				selectedMember = memberTable.getSelectionModel().getSelectedItem();
+				
+				// Open updateMember window
+				try {
+    		    	URL url = getClass().getResource("/application/updateMember.fxml");
+    		        AnchorPane pane = (AnchorPane) FXMLLoader.load( url );
+    		        Scene scene = new Scene( pane );
+    		        
+    		        // setting a new stage
+    		        Stage primaryStage = new Stage();
+    		        primaryStage.setScene( scene );
+    		        primaryStage.setTitle( "Update" );
+    		        primaryStage.show();
+    	    	} catch(Exception ex) {System.err.println("Error " + ex);}
+				
+			}
+			
+		}
+	}
+    
+	/**
+	 * Filters book list to only those currently out
+	 * according to sql database
+	 * 
+	 */
+    @FXML
+    void cOutButtonClicked() {
+    	ResultSet rs;
+    	Connection sql = conn.connect();
+    	
+    	try {
+    		
+    		books.clear();
+    		
+    		rs = sql.createStatement().executeQuery("SELECT * FROM books WHERE is_out = 1 ORDER BY title;");
+    		
+    		ResultSet temp = null;
+			while(rs.next()) {
+				
+				// Get name of member if book is out
+				if(rs.getInt(5) != -1) {					
+					temp = sql.createStatement().executeQuery("SELECT * FROM members WHERE id = " + rs.getInt(5) + ";");
+					
+					while(temp.next()) {
+						books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), temp.getString(2), rs.getString(6), rs.getString(7)));
+					}				
+				} else
+					books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), "", 
+							rs.getString(6) == null ? "" : rs.getString(6), rs.getString(7) == null ? "" : rs.getString(7)));
+			}
+			
+			bookID.setCellValueFactory(new PropertyValueFactory<>("id"));
+			bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+			bookAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
+			bookOut.setCellValueFactory(new PropertyValueFactory<>("out"));
+			bookOutTo.setCellValueFactory(new PropertyValueFactory<>("outTo"));
+			bookDueOn.setCellValueFactory(new PropertyValueFactory<>("dueOnString"));
+			bookLastOut.setCellValueFactory(new PropertyValueFactory<>("lastOutString"));
+			
+			bookTable.setItems(null);
+			bookTable.setItems(books);
+    		
+    	} catch(Exception ex) {System.err.println("Error " + ex);}
+    }
+    
+    /**
+     * Filters book list to only those cheecked out in the past week
+     * according to database
+     */
+    @FXML
+    void rOutButtonClicked() {
+    	ResultSet rs;
+    	Connection sql = conn.connect();
+    	
+    	try {
+    		
+    		books.clear();
+    		
+    		rs = sql.createStatement().executeQuery("SELECT * FROM books WHERE last_out > '" + LocalDate.now().minusDays(7) + "' ORDER BY title;");
+    		
+    		ResultSet temp = null;
+			while(rs.next()) {
+				
+				// Get name of member if book is out
+				if(rs.getInt(5) != -1) {					
+					temp = sql.createStatement().executeQuery("SELECT * FROM members WHERE id = " + rs.getInt(5) + ";");
+					
+					while(temp.next()) {
+						books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), temp.getString(2), rs.getString(6), rs.getString(7)));
+					}				
+				} else
+					books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), "", 
+							rs.getString(6) == null ? "" : rs.getString(6), rs.getString(7) == null ? "" : rs.getString(7)));
+			}
+			
+			bookID.setCellValueFactory(new PropertyValueFactory<>("id"));
+			bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+			bookAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
+			bookOut.setCellValueFactory(new PropertyValueFactory<>("out"));
+			bookOutTo.setCellValueFactory(new PropertyValueFactory<>("outTo"));
+			bookDueOn.setCellValueFactory(new PropertyValueFactory<>("dueOnString"));
+			bookLastOut.setCellValueFactory(new PropertyValueFactory<>("lastOutString"));
+			
+			bookTable.setItems(null);
+			bookTable.setItems(books);
+    		
+    	} catch(Exception ex) {System.err.println("Error " + ex);}
+    }
+    
+    /**
+     * Filters book list to only those that are overdue,
+     * according to database info
+     */
+    @FXML
+    void overdueButtonClicked() {
+    	
+    	ResultSet rs;
+    	Connection sql = conn.connect();
+    	
+    	try {
+    		
+    		books.clear();
+    		
+    		rs = sql.createStatement().executeQuery("SELECT * FROM books WHERE due_on < '" + LocalDate.now() + "' ORDER BY title;");
+    		
+    		ResultSet temp = null;
+			while(rs.next()) {
+				
+				// Get name of member if book is out
+				if(rs.getInt(5) != -1) {					
+					temp = sql.createStatement().executeQuery("SELECT * FROM members WHERE id = " + rs.getInt(5) + ";");
+					
+					while(temp.next()) {
+						books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), temp.getString(2), rs.getString(6), rs.getString(7)));
+					}				
+				} else
+					books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), "", 
+							rs.getString(6) == null ? "" : rs.getString(6), rs.getString(7) == null ? "" : rs.getString(7)));
+			}
+			
+			bookID.setCellValueFactory(new PropertyValueFactory<>("id"));
+			bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+			bookAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
+			bookOut.setCellValueFactory(new PropertyValueFactory<>("out"));
+			bookOutTo.setCellValueFactory(new PropertyValueFactory<>("outTo"));
+			bookDueOn.setCellValueFactory(new PropertyValueFactory<>("dueOnString"));
+			bookLastOut.setCellValueFactory(new PropertyValueFactory<>("lastOutString"));
+			
+			bookTable.setItems(null);
+			bookTable.setItems(books);
+    		
+    	} catch(Exception ex) {System.err.println("Error " + ex);}
+    	
+    }
+    
+    /**
+     * Filter member list to only those with fines due
+     */
+    @FXML
+    void finesButtonClicked() {
+    	
+    	ResultSet rs;
+    	Connection sql = conn.connect();
+    	
+    	try {
+    		
+    		members.clear();
+    		
+    		rs = sql.createStatement().executeQuery("SELECT * FROM members WHERE fines > 0.00 ORDER BY name;");
+    		
+    		ResultSet temp2 = null;
+			
+			boolean hasBook1 = false;
+			boolean hasBook2 = false;
+			String book1Title = "";
+			String book2Title = "";
+			while(rs.next()) {
+				
+				// Get title of book 1 if applicable
+				if(rs.getInt(3) != -1) {
+					
+					hasBook1 = true;
+					
+					temp2 = sql.createStatement().executeQuery("SELECT * FROM books WHERE id = " + rs.getInt(3) +";");
+					
+					while(temp2.next()) {
+						book1Title = temp2.getString(2);
+					}
+				}
+				// Get title of book 2 if applicable
+				if(rs.getInt(4) != -1) {
+					hasBook2 = true;
+					
+					temp2 = sql.createStatement().executeQuery("SELECT * FROM books WHERE id = " + rs.getInt(4) +";");
+					
+					while(temp2.next()) {
+						book2Title = temp2.getString(2);
+					}
+				}
+				
+				members.add(new Member(rs.getInt(1), rs.getString(2), (hasBook1 ? book1Title : ""), (hasBook2 ? book2Title : ""), rs.getString(5), rs.getDouble(6)));				
+			
+				memberId.setCellValueFactory(new PropertyValueFactory<>("id"));
+				memberName.setCellValueFactory(new PropertyValueFactory<>("name"));
+				memberBook1.setCellValueFactory(new PropertyValueFactory<>("book1"));
+				memberBook2.setCellValueFactory(new PropertyValueFactory<>("book2"));
+				memberStudent.setCellValueFactory(new PropertyValueFactory<>("student"));
+				memberFines.setCellValueFactory(new PropertyValueFactory<>("fines"));
+				
+				memberTable.setItems(null);
+				memberTable.setItems(members);
+			}
+    		
+    	} catch(Exception ex) {System.err.println("Error " + ex);}
+    	
+    }
+	
+    /**
+     * Open new window to allow selected user to pay fines owed
+     */
+	@FXML
+	void payFines() {
+		
+		if(!memberTable.getSelectionModel().isEmpty()) {
+			
+			selectedMember = memberTable.getSelectionModel().getSelectedItem();
+			
+			try {
+				// constructing our scene
+			    URL url = getClass().getResource("/application/pay.fxml");
+			    AnchorPane pane = (AnchorPane) FXMLLoader.load( url );
+			    Scene scene = new Scene( pane );
+			    
+			    // setting the stage
+			    Stage primaryStage = new Stage();
+			    primaryStage.setScene( scene );
+			    primaryStage.setTitle( "Pay Fines" );
+			    primaryStage.show();
+	    	} catch(Exception ex) {System.err.println("Error " + ex);}
+			
+		}
+		
+	}
+
+	
+	/**
+     * Get list for current tab based off search arg
+     * 
+     * @param search String to search for in database
+     * @throws Exception random potential exception
+     */
+	void getList(String search) throws Exception {
+		
+		Connection sql = conn.connect();
+		
+		if(bookTab.isSelected()) {
+			
+			try {
+				books = FXCollections.observableArrayList();
+				
+				// Execute query based on search value and store in a ResultSet
+				ResultSet rs = sql.createStatement().executeQuery("SELECT * FROM books WHERE title LIKE '%" + search +"%' OR author LIKE '%" + search+ "%' ORDER BY title;");
+				ResultSet temp = null;
+				while(rs.next()) {
+					
+					// Get name of member if book is out
+					if(rs.getInt(5) != -1) {					
+						temp = sql.createStatement().executeQuery("SELECT * FROM members WHERE id = " + rs.getInt(5) + ";");
+						
+						while(temp.next()) {
+							books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), temp.getString(2), rs.getString(6), rs.getString(7)));
+						}				
+					} else
+						books.add(new book(Integer.toString(rs.getInt(1)), rs.getString(2), rs.getString(3), rs.getString(4), "", 
+								rs.getString(6) == null ? "" : rs.getString(6), rs.getString(7) == null ? "" : rs.getString(7)));
+				}
+				
+				bookID.setCellValueFactory(new PropertyValueFactory<>("id"));
+				bookTitle.setCellValueFactory(new PropertyValueFactory<>("title"));
+				bookAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
+				bookOut.setCellValueFactory(new PropertyValueFactory<>("out"));
+				bookOutTo.setCellValueFactory(new PropertyValueFactory<>("outTo"));
+				bookDueOn.setCellValueFactory(new PropertyValueFactory<>("dueOnString"));
+				bookLastOut.setCellValueFactory(new PropertyValueFactory<>("lastOutString"));
+				
+				bookTable.setItems(null);
+				bookTable.setItems(books);
+				
+			} catch(Exception e) {System.err.println("Error " + e);}
+			
+		} else if (userTab.isSelected()) {
+			
+			try {
+				
+				members = FXCollections.observableArrayList();
+				// Execute query based on search value and store in a ResultSet
+				ResultSet rs2 = sql.createStatement().executeQuery("SELECT * FROM members WHERE name LIKE '%" + search + "%' ORDER BY name;");
+				ResultSet temp2 = null;
+				
+				boolean hasBook1 = false;
+				boolean hasBook2 = false;
+				String book1Title = "";
+				String book2Title = "";
+				while(rs2.next()) {
+					
+					// Get title of book 1 if applicable
+					if(rs2.getInt(3) != -1) {
+						hasBook1 = true;
+						
+						temp2 = sql.createStatement().executeQuery("SELECT * FROM books WHERE id = " + rs2.getInt(3) +";");
+						
+						while(temp2.next()) {
+							book1Title = temp2.getString(2);
+						}
+					}
+					// Get title of book 2 if applicable
+					if(rs2.getInt(4) != -1) {
+						hasBook2 = true;
+						
+						temp2 = sql.createStatement().executeQuery("SELECT * FROM books WHERE id = " + rs2.getInt(4) +";");
+						
+						while(temp2.next()) {
+							book2Title = temp2.getString(2);
+						}
+					}
+					
+					members.add(new Member(rs2.getInt(1), rs2.getString(2), (hasBook1 ? book1Title : ""), (hasBook2 ? book2Title : ""), rs2.getString(5), rs2.getDouble(6)));				
+
+				}
+								
+				memberId.setCellValueFactory(new PropertyValueFactory<>("id"));
+				memberName.setCellValueFactory(new PropertyValueFactory<>("name"));
+				memberBook1.setCellValueFactory(new PropertyValueFactory<>("book1"));
+				memberBook2.setCellValueFactory(new PropertyValueFactory<>("book2"));
+				memberStudent.setCellValueFactory(new PropertyValueFactory<>("student"));
+				memberFines.setCellValueFactory(new PropertyValueFactory<>("fines"));
+								
+				memberTable.setItems(null);
+				memberTable.setItems(members);
+				
+			} catch(Exception e) {System.err.println("Error " + e);}
+			
+		}
+	}
+	
+	/**
+	 * Create DbConnection object for use of queries and get 'fresh' (haha) 
+	 * set of data for tables
+	 */
+	@Override
+    public void initialize(URL url, ResourceBundle rb) {
+    	conn = new DbConnection();
+    	
+    	refresh();
+    }
+}

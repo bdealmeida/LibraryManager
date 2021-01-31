@@ -1,0 +1,84 @@
+package application;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Stage;
+
+public class payController implements Initializable {
+
+	Connection sql;
+	private Member updatedMem;
+	
+	// Element variables
+	@FXML
+	private Text info;
+	@FXML
+	private TextField amountTf;
+	@FXML
+	private Button submitBtn;
+	
+	/**
+	 * Change Member updatedMem's fines to new totle after amount is paid
+	 */
+	@FXML
+	void submit() {
+		
+		if(!amountTf.getText().equals("")) {
+			
+			double paid = Double.parseDouble(amountTf.getText());
+			
+			double left = Double.parseDouble(updatedMem.getFines().substring(1)) - paid;
+			
+			try {
+				sql.createStatement().execute("UPDATE members SET fines="+left+" WHERE id="+updatedMem.getId()+";");
+				
+				close();
+			} catch(Exception ex) {}
+		}
+		
+	}
+	
+	/**
+	 * Close the window
+	 */
+	public void close() {
+		Stage stage = (Stage) info.getScene().getWindow();
+		stage.close();
+	}
+	
+	/**
+	 * Get selected member for table, then updated their info into updatedMem to ensure correct
+	 * fines amount is displayed
+	 */
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		sql = new DbConnection().connect();
+
+		ResultSet rs;
+		try {
+			rs = sql.createStatement().executeQuery("SELECT id,name,fines FROM members WHERE id="+Controller.selectedMember.getId()+";");
+			
+			while(rs.next()) {
+				DecimalFormat df = new DecimalFormat("#0.00");
+				
+				updatedMem = new Member(rs.getInt(1), rs.getString(2), rs.getDouble(3));
+				
+				info.setText(updatedMem.getName() + " owes $" + df.format(rs.getDouble(3)) + " in fines");
+				info.setTextAlignment(TextAlignment.CENTER);
+			}
+		} catch (SQLException e) {}
+	}
+
+}

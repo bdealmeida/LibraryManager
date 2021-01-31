@@ -1,0 +1,24 @@
+package application;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DbConnection {
+	
+	/**
+	 * Get new connection to server for use in a query
+	 * @return Connection sql to databse;
+	 */
+	public Connection connect() {
+		final String url = "jdbc:mysql://localhost:3306/library?user=root&password=";
+		try {
+	    	// connect to SQL library database for book and user
+		    Connection sql = DriverManager.getConnection(url);
+		    
+		    return sql;
+	     		
+    	} catch(Exception e) {e.printStackTrace();}
+		
+		return null;
+	}
+	
+}

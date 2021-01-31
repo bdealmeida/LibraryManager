@@ -1,0 +1,125 @@
+﻿package application;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class checkOutController implements Initializable {
+	
+	private Connection sql;
+	private book boo; // Current book in question
+	private Member mem; // Current member in question
+	
+	// Element variables;
+	@FXML
+	private TextField titleTf;
+	@FXML
+	private TextField idTf;
+	@FXML
+	private Text fineTxt;
+	@FXML
+	private Button checkBtn;
+	@FXML
+	private Button submitBtn;
+	
+	@FXML
+	void submit() {
+		
+		boolean again = true;
+		
+		if(!idTf.getText().equals("") && !titleTf.getText().equals("")) {
+			
+			try {
+				ResultSet rs = sql.createStatement().executeQuery("SELECT * FROM members WHERE id = " + idTf.getText() + ";");
+				// CHECK IF MEMBER CAN CHECK OUT BOOK
+				boolean hasBook1 = false;
+				boolean hasBook2 = false;
+				while(rs.next()) {
+					if(rs.getInt(3) != -1)
+						hasBook1 = true;
+					if(rs.getInt(4) != -1)
+						hasBook2 = true;
+				}
+				
+				
+				
+				if(hasBook1 && hasBook2) { // User has two books
+					idTf.setText("Too many books");
+					again = true;
+				} else if(hasBook1 && !hasBook2) { // User has one book, set #2
+					sql.createStatement().execute("UPDATE members SET book2="+boo.getID()+" WHERE id="+idTf.getText()+";");
+					sql.createStatement().execute("UPDATE books SET is_out=1,out_to="+idTf.getText()+",due_on='"+LocalDate.now().plus(mem.getStudent().equals("✓") ? 14 : 30, ChronoUnit.DAYS)+"',"
+							+ "last_out='"+LocalDate.now()+"' WHERE id="+boo.getID()+";");
+					again = false;
+				} else if(!hasBook1 && !hasBook2) { // User has no books, set #1
+					sql.createStatement().execute("UPDATE members SET book1="+boo.getID()+" WHERE id="+idTf.getText()+";");
+					sql.createStatement().execute("UPDATE books SET is_out=1,out_to="+idTf.getText()+",due_on='"+LocalDate.now().plus(mem.getStudent().equals("✓") ? 14 : 30, ChronoUnit.DAYS)+"',"
+							+ "last_out='"+LocalDate.now()+"' WHERE id="+boo.getID()+";");
+					again = false;
+				}
+					
+				
+			} catch (Exception e) {System.err.println("Error (submit) " + e);}
+			
+		}
+		
+		// if user input is satisfactory, close
+		if(!again)
+			close();
+	}
+	
+	/**
+	 * Get the total cost of fines member mem owes upon request
+	 * for display in fineTxt object
+	 */
+	@FXML
+	void getFines() {
+		
+		if(!idTf.getText().equals("")) {
+						
+			ResultSet rs;
+			try {
+				rs = sql.createStatement().executeQuery("SELECT * FROM members WHERE id=" + idTf.getText() + ";");
+							
+				while(rs.next()) {
+					mem = new Member(rs.getInt(1), rs.getString(2), "", "", rs.getString(5), rs.getDouble(6));
+				}
+								
+			} catch (Exception e) {System.err.println("Error (getFines) " + e);}
+						
+			fineTxt.setText(fineTxt.getText() + mem.getFines());
+		}
+	}
+	
+	/**
+	 * Close the window
+	 */
+	public void close() {
+		Stage stage = (Stage) fineTxt.getScene().getWindow();
+		stage.close();
+	}
+	
+	/**
+	 * Get connection and selected book's info for boo object
+	 */
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		sql = new DbConnection().connect();
+		
+		// Get initial information based on selected element
+		boo = Controller.selectedBook;
+		titleTf.setText(boo.getTitle());
+	}
+
+}

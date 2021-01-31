@@ -1,0 +1,90 @@
+﻿package application;
+
+import java.sql.Connection;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
+public class book {
+	
+	public static Connection sql;
+	
+	private IntegerProperty id;
+	private StringProperty title;
+	private StringProperty author;
+	private StringProperty out;
+	private StringProperty outTo;
+	private LocalDate dueOn;
+	private LocalDate lastOut;
+	private StringProperty dueOnString;
+	private StringProperty lastOutString;
+	
+	public book(int id, String title, String author) {
+		this.id = new SimpleIntegerProperty(id);
+		this.title = new SimpleStringProperty(title);
+		this.author = new SimpleStringProperty(author);
+	}
+	
+	public book(String id, String title, String author, String out, String outTo, String dueOn, String lastOut) {
+		this.id = new SimpleIntegerProperty(Integer.parseInt(id));
+		this.title = new SimpleStringProperty(title);
+		this.author = new SimpleStringProperty(author);
+		// Base out string on database 0 or 1
+		this.out = new SimpleStringProperty(out.equals("0") ? "" : "✓");
+		this.outTo = new SimpleStringProperty(outTo);
+		
+		// If there is a date for these two arguements, parse it into a new LocalDate object
+		if(!dueOn.equals("")) {
+			this.dueOn = LocalDate.parse(dueOn);
+			this.dueOnString = new SimpleStringProperty(dueOn.substring(5,7) + "-" + dueOn.substring(8) + "-" + dueOn.substring(0,4));
+		} else
+			this.dueOnString = new SimpleStringProperty("");
+		if(!lastOut.equals("")) {
+			this.lastOut = LocalDate.parse(lastOut);
+			this.lastOutString = new SimpleStringProperty(lastOut.substring(5,7) + "-" + lastOut.substring(8) + "-" + lastOut.substring(0,4));
+		} else
+			this.lastOutString = new SimpleStringProperty("");
+	}
+	
+	/**
+	 * get the number of days a book is late, or 0 if on-time
+	 * 
+	 * @return days late
+	 */
+	public int daysLate() {
+		LocalDate curDate = LocalDate.now();
+		
+		if(dueOn != null) {
+			if(curDate.isBefore(dueOn))
+				return 0;
+			else
+				return ((int) ChronoUnit.DAYS.between(curDate, dueOn));
+		}
+		
+		return 0;
+	}
+	
+	// Getters
+	public int getID() {return id.get();}
+	public String getTitle() {return title.get();}
+	public String getAuthor() {return author.get();}
+	public String getOut() {return out.get();}
+	public String getOutTo() {return outTo.get();}
+	public LocalDate getDueOn() {return dueOn;}
+	public LocalDate getLastOut() {return lastOut;}
+	public String getDueOnString() {return dueOnString.get();}
+	public String getLastOutString() {return lastOutString.get();}
+	
+	// Property getters
+	public IntegerProperty idProperty() {return id;}
+	public StringProperty titleProperty() {return title;}
+	public StringProperty authorProperty() {return author;}
+	public StringProperty outProperty() {return out;}
+	public StringProperty outToProperty() {return outTo;}
+	public StringProperty dueOnProperty() {return dueOnString;}
+	public StringProperty lastOutProperty() {return lastOutString;}
+}

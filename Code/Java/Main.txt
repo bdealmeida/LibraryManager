@@ -1,0 +1,39 @@
+package application;
+
+import java.io.IOException;
+import java.net.URL;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+  @Override
+  public void start(Stage primaryStage) throws IOException {
+    
+    // constructing our scene
+    URL url = getClass().getResource("/application/MainScene.fxml");
+    BorderPane pane = (BorderPane) FXMLLoader.load( url );
+    Scene scene = new Scene( pane );
+    
+    // setting the stage
+    primaryStage.setScene( scene );
+    primaryStage.setTitle( "Knights' Library Manager" );
+    primaryStage.show();
+    
+    final Clipboard clipboard = Clipboard.getSystemClipboard();
+	final ClipboardContent content = new ClipboardContent();
+	content.putString("This should paste");
+	clipboard.setContent(content);
+    
+  }
+
+  public static void main(String[] args) {
+    launch(args);
+  }
+}

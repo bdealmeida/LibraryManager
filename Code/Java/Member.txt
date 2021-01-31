@@ -1,0 +1,59 @@
+﻿package application;
+
+import javafx.beans.property.*;
+
+public class Member {
+	
+	private IntegerProperty id;
+	private StringProperty name;
+	private StringProperty book1;
+	private StringProperty book2;
+	private StringProperty student;
+	private StringProperty fines = null;
+	
+	public Member(int id, String name, double fines) {
+		this.id = new SimpleIntegerProperty(id);
+		this.name = new SimpleStringProperty(name);
+		this.fines = new SimpleStringProperty("$" + Double.toString(fines));
+	}
+	
+	public Member(int id, String name, String book1, String book2, String student, double fines) {
+		this.id = new SimpleIntegerProperty(id);
+		this.name = new SimpleStringProperty(name);
+		this.book1 = new SimpleStringProperty(book1);
+		this.book2 = new SimpleStringProperty(book2);
+		this.student = new SimpleStringProperty(student.equals("0") ? "" : "✓");
+		
+		String temp = Double.toString(fines);
+		
+		// Create fines string from raw string temp
+		for(int i = 0; i < temp.length(); i++) {
+			if(temp.charAt(i) == '.' && i + 3 == temp.length())
+				this.fines = new SimpleStringProperty("$" + temp);
+			else if(temp.charAt(i) == '.' && i + 3 == temp.length() + 1)
+				this.fines = new SimpleStringProperty("$" + temp + "0");
+			else if(temp.charAt(i) == '.' && i <= temp.length() - 3)
+				this.fines = new SimpleStringProperty("$" + temp.substring(0, i + 3));
+		}
+		// If whole number add .00
+		if(this.fines == null)
+			this.fines = new SimpleStringProperty("$" + temp + ".00");
+	}
+	
+	// Getters
+	public int getId() {return id.get();}
+	public String getName() {return name.get();}
+	public String getBook1() {return book1.get();}
+	public String getBook2() {return book2.get();}
+	public String getStudent() {return student.get();}
+	public String getFines() {return fines.get();}
+	
+	// Property getters
+	public IntegerProperty idProperty() {return id;}
+	public StringProperty nameProperty() {return name;}
+	public StringProperty book1Property() {return book1;}
+	public StringProperty book2Property() {return book2;}
+	public StringProperty studentProperty() {return student;}
+	public StringProperty finesProperty() {return fines;}
+	
+}

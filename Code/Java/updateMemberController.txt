@@ -1,0 +1,83 @@
+package application;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class updateMemberController implements Initializable {
+
+	private Member mem; // Selected member
+	private Connection sql;
+	
+	// Graphical element variables
+	@FXML
+	private TextField nameTf;
+	@FXML
+	private TextField book1Tf;
+	@FXML
+	private TextField book2Tf;
+	@FXML
+	private CheckBox studentBox;
+	@FXML
+	private Button submitBtn;
+	
+	/**
+	 * Try to submit all inputs into update query
+	 */
+	@FXML
+	void submit() {
+		
+		try {
+			
+			sql.createStatement().execute("UPDATE members SET "
+					+ "name='"+nameTf.getText()+"', "
+					+ "book1="+(book1Tf.getText().equals("") ? "-1" : Integer.parseInt(book1Tf.getText())) + ", "
+					+ "book2="+(book2Tf.getText().equals("") ? "-1" : Integer.parseInt(book2Tf.getText())) + ", "
+					+ "student='" + (studentBox.isSelected() ? "1" : "0") + "' "
+					+ "WHERE id="+mem.getId()+";");
+			
+			close();
+			
+		} catch(Exception e) {System.err.println("Error " + e);}
+		
+	}
+	
+	/**
+	 * Close current window
+	 */
+	void close() {
+		Stage s = (Stage) nameTf.getScene().getWindow();
+		s.close();
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		System.out.println("Loading");
+		
+		mem = Controller.selectedMember;
+		sql = new DbConnection().connect();
+		
+		nameTf.setText(mem.getName());
+		
+		// Get book id's
+		try {
+			ResultSet rs = sql.createStatement().executeQuery("Select * FROM members WHERE id="+mem.getId()+";");
+			
+			while(rs.next()) {
+				book1Tf.setText((rs.getInt(3) != -1 ? Integer.toString(rs.getInt(3)) : ""));
+				book2Tf.setText((rs.getInt(4) != -1 ? Integer.toString(rs.getInt(4)) : ""));
+			}
+		} catch(Exception e) {System.err.println("Error " + e);}
+		
+		studentBox.setSelected(mem.getStudent().equals("") ? false : true);
+	}
+
+}

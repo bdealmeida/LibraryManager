@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="264.0" prefWidth="375.0" style="-fx-background-color: d1d1d1;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.updateBookController">
+   <children>
+      <Label layoutX="75.0" layoutY="60.0" text="Title:" translateX="5.0">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="97.0" text="Author:" translateY="-10.0">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="64.0" layoutY="138.0" text="Is Out:" translateX="2.0" translateY="-22.0">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="13.0" layoutY="154.0" text="Member's ID:" translateX="-1.0" translateY="-10.0">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="-1.0" prefHeight="52.0" prefWidth="375.0" style="-fx-background-color: #8f33b7;">
+         <children>
+            <Label layoutX="141.0" layoutY="8.0" text="Update Book Info" translateX="6.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="45.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/knight.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="59.0" layoutY="172.0" text="Due On:" translateX="-8.0" translateY="-1.0">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="15.0" layoutY="199.0" text="Last Out On:" translateX="1.0" translateY="-1.0">
+         <font>
+            <Font name="Arial" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="titleTf" layoutX="121.0" layoutY="58.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="authorTf" layoutX="121.0" layoutY="85.0" prefHeight="25.0" prefWidth="241.0" />
+      <CheckBox fx:id="isOutBox" layoutX="127.0" layoutY="118.0" mnemonicParsing="false" />
+      <TextField fx:id="memberIdTf" layoutX="121.0" layoutY="142.0" prefHeight="25.0" prefWidth="129.0" />
+      <TextField fx:id="dueOnTf" layoutX="121.0" layoutY="169.0" prefHeight="25.0" prefWidth="129.0" />
+      <TextField fx:id="lastOutTf" layoutX="121.0" layoutY="198.0" prefHeight="25.0" prefWidth="129.0" translateY="-2.0" />
+      <Label layoutX="262.0" layoutY="182.0" text="yyyy-mm-dd">
+         <font>
+            <Font name="Arial Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="submitBtn" layoutX="157.0" layoutY="232.0" mnemonicParsing="false" onAction="#submit" style="-fx-background-color: #c1c1c1;" text="Submit" translateY="-3.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label layoutX="256.0" layoutY="118.0" prefHeight="52.0" prefWidth="107.0" text="Please enter into all fields (last three optional)" textAlignment="CENTER" wrapText="true" />
+   </children>
+</AnchorPane>

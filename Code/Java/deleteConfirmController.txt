@@ -1,0 +1,53 @@
+package application;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class deleteConfirmController implements Initializable {
+
+	// Used for query
+	Connection sql;
+	
+	// Graphical element variables
+	@FXML
+	private Text msg;
+	@FXML
+	private Button confirm;
+	
+	@FXML
+	void delete() {
+		
+		try {
+			sql.createStatement().execute("DELETE FROM "+(Controller.selectedBook == null ? "members" : "books")+" WHERE id=" +
+					(Controller.selectedBook == null ? Controller.selectedMember.getId() : Controller.selectedBook.getID())+";");
+		
+			close();
+		} catch (Exception e) {System.err.println("Error " + e);}
+		
+	}
+	
+	/**
+	 * Closes window
+	 */
+	void close() {
+		Stage s = (Stage) msg.getScene().getWindow();
+		s.close();
+	}
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		sql = new DbConnection().connect();
+		
+		msg.setText("Are you sure you wish to delete entry " + (Controller.selectedBook == null ? 
+				Controller.selectedMember.getName() : Controller.selectedBook.getTitle())+"? It cannot be recovered later.");
+	}
+
+}
